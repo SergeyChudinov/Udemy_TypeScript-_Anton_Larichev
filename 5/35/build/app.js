@@ -361,3 +361,35 @@ class UserController extends Controller {
 }
 const c = new UserController();
 // c.handleWithLogs('Request');
+//056 Strict режим
+function test(a) {
+    return a;
+}
+let f = test; // "strictFunctionTypes": true,  - покажет ошибку  
+// f('abc');
+test.apply(undefined, [1, 3]); //"strictBindCallApply": true,  - покажет ошибку только при Call или Aplay
+class A {
+    // constructor(b: number) { // - иницилизация конструктора
+    // 		this.b = b
+    // }
+    test() {
+        return function () {
+            this.b = 5; //  "strictPropertyInitialization": true, - покажет ошибки с this!
+        };
+    }
+}
+try {
+}
+catch (e) {
+    console.log(e.message); // "useUnknownInCatchVariables": true,  - покажнт ошибки на e, у нее нет messsage!
+}
+//057 Проверки кода
+class User9 {
+    constructor(name) {
+        this.name = name;
+    }
+}
+function createUser9(user) {
+    // @ts-ignore -  игнорироуем ошибку
+    const defaultUser = new User9('default'); // "noUnusedLocals": true, покажет что свойсто не используется!
+}

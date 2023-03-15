@@ -133,8 +133,8 @@ async function  getData() {
 		}
 	}
 }
-type U1 = unknown | number;
-type I1 = unknown & number;
+type U1 = unknown | number; //unknown
+type I1 = unknown & number; //number
 
 //29 Never
 type paymentAction = 'refund' | 'chrckout' | 'reject';
