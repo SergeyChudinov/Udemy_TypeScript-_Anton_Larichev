@@ -1,4 +1,5 @@
 "use strict";
+//050 Упражнение - Делаем абстрактный logger
 class Logger2 {
     printDate(date) {
         this.log(date.toString());
